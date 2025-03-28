@@ -29,21 +29,21 @@ public class persons {
     @Column(name="last_name", length =  30)
     private String last_name;
 
-    @Column(name="phone", length =  30)
-    private String phone;
+    @Column(name="phone")
+    private int phone;
 
-    @Column(name="Age", length =  30)
-    private int Age;
+    @Column(name="Age")
+    private int age;
 
     public persons() {
     }
 
-    public persons(int id_persons, String name, String last_name, String phone, int age) {
+    public persons(int id_persons, String name, String last_name, int phone, int age) {
         this.id_persons = id_persons;
         this.name = name;
         this.last_name = last_name;
         this.phone = phone;
-        Age = age;
+        this.age = age;
     }
 
     public int getId_persons() {
@@ -70,24 +70,19 @@ public class persons {
         this.last_name = last_name;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(int age) {
-        Age = age;
+        this.age = age;
     }
-
-    
-
-    
-    
 }

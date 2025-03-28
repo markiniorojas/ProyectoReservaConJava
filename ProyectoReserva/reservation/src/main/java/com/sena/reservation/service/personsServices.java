@@ -6,13 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sena.reservation.DTO.requestRegistrerPerson;
+import com.sena.reservation.controller.personsController;
 import com.sena.reservation.interfaces.IPersons;
 import com.sena.reservation.model.persons;
 
 @Service
 public class personsServices {
-
-
     /*
      * @Autowire incluye la conexion de la interfaz
      */
@@ -29,10 +29,20 @@ public class personsServices {
         return PersonsData.findById(id);
     }
 
-
     //guardar registro
-    public void save(persons person){
-        PersonsData.save(person);
+    public void save(requestRegistrerPerson person){
+        PersonsData.save(convertRegisterToPerson(person));
+    }
+
+    public persons convertRegisterToPerson(requestRegistrerPerson person){
+        return new persons(
+            0,
+            person.getName(),
+            person.getLastName(),
+            person.getPhone(),
+            person.getAge()
+           
+        );
     }
 
     //actualiza el registro
